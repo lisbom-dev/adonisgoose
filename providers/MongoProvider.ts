@@ -32,7 +32,7 @@ export default class MongoProvider {
       try {
         mongoose.connect(config.default.url, config.default.config)
       } catch (error) {
-        throw new Error("failed to connect to Mongo")
+        throw new Error('failed to connect to Mongo')
       }
       return mongoose
     })
