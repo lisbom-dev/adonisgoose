@@ -1,5 +1,5 @@
 {
-    "name": "adonisgoose",
+    "name": "@cuc/adonisgoose",
     "version": "1.0.0",
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
@@ -21,7 +21,7 @@
         "adonisv5",
         "adonis"
     ],
-    "author": "manuel-antunes",
+    "author": "manuel-antunes,cucsofts",
     "license": "MIT",
     "devDependencies": {
         "@adonisjs/core": "^5.3.2",
