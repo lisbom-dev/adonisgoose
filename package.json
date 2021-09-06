@@ -4,7 +4,12 @@
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
     "scripts": {
-        "test": "echo testing"
+        "test": "echo testing",
+        "clean": "del build",
+        "compile": "npm run lint && npm run clean && tsc && npm run copyfiles",
+        "copyfiles": "copyfiles \"templates/**/*.txt\" \"instructions.md\" build",
+        "lint": "eslint . --ext=.ts",
+        "commit": "git-cz"
     },
     "repository": {
         "type": "git",
