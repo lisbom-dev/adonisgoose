@@ -1,5 +1,5 @@
 {
-    "name": "@cuc/adonisgoose",
+    "name": "adonisgoose",
     "version": "1.0.0",
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
