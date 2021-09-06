@@ -1,0 +1,10 @@
+import Mongo from '@ioc:Adonis/Addons/Mongo'
+import {{filename}} from 'Contracts/interfaces/{{filename}}'
+
+const {{filename}}Schema = new Mongo.Schema<{{filename}}>({
+
+}, {
+  timestamps: true
+});
+
+export default Mongo.model<{{filename}}>("{{filename}}", {{filename}}Schema);
