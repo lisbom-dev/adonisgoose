@@ -1,0 +1,13 @@
+{
+  "extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "useDefineForClassFields": true
+  },
+  "files": [
+    "./node_modules/@adonisjs/core/build/adonis-typings/index.d.ts",
+    "./node_modules/@adonisjs/repl/build/adonis-typings/index.d.ts"
+  ]
+}
