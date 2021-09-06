@@ -18,4 +18,3 @@ yarn.lock
 package-lock.json
 shrinkwrap.yaml
 test/\_\_app
-.env
