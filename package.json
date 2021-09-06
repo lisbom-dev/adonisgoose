@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "github.com/CuC-Softs/adonisgoose"
+        "url": "git+https://github.com/CuC-Softs/adonisgoose.git"
     },
     "keywords": [
         "mongoose",
