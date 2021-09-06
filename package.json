@@ -1,6 +1,6 @@
 {
-    "name": "adonisgoose",
-    "version": "1.0.0",
+    "name": "adonissgoose",
+    "version": "1.0.3",
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
     "scripts": {
@@ -11,6 +11,11 @@
         "lint": "eslint . --ext=.ts",
         "commit": "git-cz"
     },
+    "files": [
+        "build/commands",
+        "build/providers",
+        "build/templates"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/CuC-Softs/adonisgoose.git"
@@ -26,6 +31,24 @@
         "adonisv5",
         "adonis"
     ],
+    "publishConfig": {
+        "tag": "latest",
+        "access": "public"
+    },
+    "adonisjs": {
+        "types": "adonissgoose",
+        "providers": [
+            "adonissgoose"
+        ],
+        "commands": [
+            "adonissgoose/build/commands"
+        ],
+        "templates": {
+            "database": [
+                "factories/index.txt"
+            ]
+        }
+    },
     "author": "manuel-antunes,cucsofts",
     "license": "MIT",
     "devDependencies": {

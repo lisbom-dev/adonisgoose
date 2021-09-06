@@ -1,1 +1,1 @@
-export default ['adonisgoose/build/commands/MakeSchema']
+export default ['adonissgoose/build/commands/MakeSchema']
