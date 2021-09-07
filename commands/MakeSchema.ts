@@ -61,7 +61,7 @@ export default class MakeSchema extends BaseCommand {
       .useMustache()
       .appRoot(this.application.cliCwd || this.application.appRoot)
     this.generator
-      .addFile(this.name, { pattern: 'pascalcase', form: 'singular' })
+      .addFile(this.name, { pattern: 'pascalcase', form: 'singular', suffix: '.interface' })
       .stub(otherstub)
       .destinationDir(path || 'contracts/interfaces')
       .useMustache()
