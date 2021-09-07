@@ -14,7 +14,9 @@
     "files": [
         "build/commands",
         "build/providers",
-        "build/templates"
+        "build/instructions.js",
+        "build/templates",
+        "build/instructions.md"
     ],
     "repository": {
         "type": "git",
