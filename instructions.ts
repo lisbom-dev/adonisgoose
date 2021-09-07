@@ -11,8 +11,8 @@ export default async function instructions(
   app: ApplicationContract,
   sink: typeof sinkStatic
 ) {
-  const configPath = app.configPath('mongo.txt')
-  const databaseConfig = new sink.files.MustacheFile(projectRoot, configPath, getStub('mongo.ts'))
+  const configPath = app.configPath('mongo.ts')
+  const databaseConfig = new sink.files.MustacheFile(projectRoot, configPath, getStub('mongo.txt'))
   databaseConfig.overwrite = true
   databaseConfig.apply().commit()
 
