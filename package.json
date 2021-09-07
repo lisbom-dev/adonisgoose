@@ -1,6 +1,6 @@
 {
     "name": "adonisgoose",
-    "version": "0.0.2",
+    "version": "0.0.5",
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
     "scripts": {
