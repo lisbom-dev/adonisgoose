@@ -27,7 +27,7 @@ export default class MongoProvider {
   public static needsApplication = true
 
   public register() {
-    this.application.container.singleton('Adonis/Addons/Mongo', () => {
+    this.application.container.singleton('@ioc:CuC/AdonisGoose', () => {
       const config = this.application.container.use('Config/mongo')
       try {
         mongoose.connect(config.default.url, config.default.config)
@@ -39,6 +39,6 @@ export default class MongoProvider {
   }
 
   public async shutdown() {
-    await this.application.container.use('Adonis/Addons/Mongo').manager.closeAll()
+    await this.application.container.use('@ioc:CuC/AdonisGoose').manager.closeAll()
   }
 }

@@ -1,5 +1,5 @@
-import Mongo from '@ioc:Adonis/Addons/Mongo'
-import {{ filename }} from 'Contracts/interfaces/I{{ filename }}'
+import Mongo from '@ioc:CuC/AdonisGoose'
+import I{{ filename }} from 'Contracts/interfaces/I{{ filename }}'
 
 const {{ filename }}Schema = new Mongo.Schema<I{{ filename }}>({
 

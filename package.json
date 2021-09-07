@@ -20,12 +20,14 @@
         "build/providers",
         "build/instructions.js",
         "build/templates",
+        "build/contracts",
         "build/instructions.md"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/CuC-Softs/adonisgoose.git"
     },
+    "typings": "./build/adonis-typings/index.d.ts",
     "keywords": [
         "mongoose",
         "adonisjs",
