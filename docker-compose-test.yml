@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  test:
+    build:
+      context: .
+      target: build-deps
+    links:
+      - mongotest
+    command: ['npm', 'run', 'test:docker']

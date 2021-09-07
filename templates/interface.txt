@@ -1,3 +1,3 @@
 import { Document } from 'mongoose'
 
-export default interface {{filename}} extends Document {}
+export default interface {{ filename }} extends Document {}

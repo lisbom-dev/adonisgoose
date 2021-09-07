@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  mongotest:
+    image: mongo
+    container_name: mongotest
+    ports:
+      - '27017:27017'

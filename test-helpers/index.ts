@@ -45,3 +45,10 @@ export async function setupApplication(
 
   return app
 }
+
+/**
+ * Split string to an array using cross platform new lines
+ */
+export function toNewlineArray(contents: string): string[] {
+  return contents.split(/\r?\n/)
+}

@@ -4,12 +4,16 @@
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
     "scripts": {
-        "test": "echo testing",
+        "test": "docker-compose -f docker-compose.yml -f docker-compose-test.yml build && docker-compose -f docker-compose.yml -f docker-compose-test.yml run --rm test",
         "clean": "del build",
-        "compile": "npm run lint && npm run clean && tsc && npm run copyfiles",
+        "compile": "npm run lint && npm run clean && tsc",
         "copyfiles": "copyfiles \"templates/**/*.txt\" \"instructions.md\" build",
         "lint": "eslint . --ext=.ts",
-        "commit": "git-cz"
+        "commit": "git-cz",
+        "build": "npm run compile && npm run copyfiles",
+        "pretest": "npm run lint",
+        "test:docker": "node japaFile.js",
+        "prepublishOnly": "npm run build"
     },
     "files": [
         "build/commands",
