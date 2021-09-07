@@ -1,5 +1,5 @@
 {
-    "name": "adonissgoose",
+    "name": "adonisgoose",
     "version": "0.0.1",
     "description": "a support to mongoose orm into adonisjs v5",
     "main": "index.js",
@@ -36,18 +36,15 @@
         "access": "public"
     },
     "adonisjs": {
-        "types": "adonissgoose",
+        "instructions": "./build/instructions.js",
+        "instructionsMd": "./build/instructions.md",
+        "types": "adonisgoose",
         "providers": [
-            "adonissgoose"
+            "adonisgoose"
         ],
         "commands": [
-            "adonissgoose/build/commands"
-        ],
-        "templates": {
-            "database": [
-                "factories/index.txt"
-            ]
-        }
+            "adonisgoose/build/commands"
+        ]
     },
     "author": "manuel-antunes,cucsofts",
     "license": "MIT",
