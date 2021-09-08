@@ -21,24 +21,24 @@ import mongoose from 'mongoose'
 |
 */
 export default class MongoProvider {
-  constructor(protected application: ApplicationContract) {
+  constructor(protected app: ApplicationContract) {
     return
   }
   public static needsApplication = true
 
   public register() {
-    this.application.container.singleton('@ioc:CuC/AdonisGoose', () => {
-      const config = this.application.container.use('Config/mongo')
+    this.app.container.singleton('CuC/AdonisGoose', () => {
+      const config = this.app.container.resolveBinding('Adonis/Core/Config').get('mongo', {})
       try {
-        mongoose.connect(config.default.url, config.default.config)
+        mongoose.connect(config.url, config.config)
       } catch (error) {
-        throw new Error('failed to connect to Mongo')
+        throw new Error(`failed to connect to Mongo: ${(<Error>error).message}`)
       }
       return mongoose
     })
   }
 
   public async shutdown() {
-    await this.application.container.use('@ioc:CuC/AdonisGoose').manager.closeAll()
+    await this.app.container.use('CuC/AdonisGoose').manager.closeAll()
   }
 }
