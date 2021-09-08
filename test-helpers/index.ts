@@ -25,10 +25,10 @@ export async function setupApplication(
   )
 
   await fs.add(
-    'config/mongoose.ts',
+    'config/mongo.ts',
     `
-    const mongoconfig = ${JSON.stringify(mongoConfig, null, 2)}
-    export default mongoconfig
+    const mongoConfig = ${JSON.stringify(mongoConfig, null, 2)}
+    export default mongoConfig
   `
   )
 
