@@ -57,12 +57,12 @@
   "author": "manuel-antunes,cucsofts",
   "license": "MIT",
   "devDependencies": {
+    "@adonisjs/auth": "^8.0.10",
     "@adonisjs/core": "^5.3.2",
     "@adonisjs/mrm-preset": "^4.1.2",
     "@adonisjs/repl": "^3.1.6",
     "@adonisjs/require-ts": "^2.0.8",
     "@adonisjs/sink": "^5.1.6",
-    "@adonisjs/auth": "^8.0.10",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@poppinss/dev-utils": "^1.1.5",
@@ -103,9 +103,9 @@
     "test": "test"
   },
   "dependencies": {
-    "@types/mongoose": "^5.11.97",
-    "mongoose": "^6.0.4",
     "@poppinss/hooks": "^3.0.5",
-    "@poppinss/utils": "^3.2.0"
+    "@poppinss/utils": "^3.2.0",
+    "@types/mongoose": "^5.11.97",
+    "mongoose": "^6.0.4"
   }
 }
