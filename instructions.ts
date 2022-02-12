@@ -17,7 +17,7 @@ export default async function instructions(
   databaseConfig.apply().commit()
 
   const env = new sink.files.EnvFile(projectRoot)
-  env.set('MONGODB_URL', 'localhost:27017')
+  env.set('MONGODB_URL', 'mongodb://localhost:27017')
   env.commit()
   sink.logger.action('update').succeeded('.env,.env.example')
 }
