@@ -10,12 +10,5 @@
   "files": [
     "./node_modules/@adonisjs/core/build/adonis-typings/index.d.ts",
     "./node_modules/@adonisjs/repl/build/adonis-typings/index.d.ts"
-  ],
-  "include": [
-    "./adonis-typings/**/*",
-    "./commands/**/*",
-    "./src/**/*",
-    "./providers/**/*",
-    "./test-helpers/*"
   ]
 }
