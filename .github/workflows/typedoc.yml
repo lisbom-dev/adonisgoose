@@ -7,7 +7,7 @@ on:
 
 env:
   NODE_VERSION: 16.x
-  ENTRY_FILE: 'adonis-typings/mongo.ts
+  ENTRY_FILE: 'adonis-typings/mongo.ts'
 
 jobs:
   deploy:
