@@ -12,8 +12,8 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
     steps:
-      - name: Get package name
-        run: echo "PACKAGE_NAME=$(jq .name package.json | tr -d '"')" >> $GITHUB_ENV
+      # - name: Get package name
+      #   run: echo "PACKAGE_NAME=$(jq .name package.json | tr -d '"')" >> $GITHUB_ENV
       # - uses: GoogleCloudPlatform/release-please-action@v2
       #   id: release
       #   with:
