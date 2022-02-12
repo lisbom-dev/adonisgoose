@@ -1,5 +1,6 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import mongoose from 'mongoose'
+import { getMongodbModelAuthProvider } from '../src/Auth/AdonisgooseModelAuthProvider'
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ export default class MongoProvider {
   }
   public static needsApplication = true
 
-  public register() {
+  private registerDatabase() {
     this.app.container.singleton('CuC/AdonisGoose', () => {
       const config = this.app.container.resolveBinding('Adonis/Core/Config').get('mongo', {})
       try {
@@ -36,6 +37,17 @@ export default class MongoProvider {
       }
       return mongoose
     })
+  }
+
+  public register() {
+    this.registerDatabase()
+  }
+
+  public boot(): void {
+    if (this.app.container.hasBinding('Adonis/Addons/Auth')) {
+      const Auth = this.app.container.resolveBinding('Adonis/Addons/Auth')
+      Auth.extend('provider', 'adonisgoose', getMongodbModelAuthProvider)
+    }
   }
 
   public async shutdown() {
