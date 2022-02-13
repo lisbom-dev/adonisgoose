@@ -1,6 +1,6 @@
 {
   "name": "adonisgoose",
-  "version": "1.1.0",
+  "version": "1.1.3",
   "description": "a support to mongoose orm into adonisjs v5",
   "main": "build/providers/MongoProvider.js",
   "scripts": {
@@ -20,6 +20,7 @@
     "build/providers",
     "build/instructions.js",
     "build/templates",
+    "build/src",
     "build/adonis-typings",
     "build/instructions.md"
   ],

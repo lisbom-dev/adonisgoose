@@ -21,7 +21,7 @@ declare module '@ioc:CuC/AdonisGoose' {
     extends UserProviderContract<InstanceType<User>> {}
 
   export interface AdonisgooseAuthProviderConfig<User extends Model<unknown>> {
-    driver: 'mongodb-model'
+    driver: 'adonisgoose'
     /**
      * Function that imports the user model.
      * @default () => import('App/Models/User')
