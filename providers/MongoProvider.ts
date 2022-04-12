@@ -51,6 +51,6 @@ export default class MongoProvider {
   }
 
   public async shutdown() {
-    await this.app.container.use('CuC/AdonisGoose').manager.closeAll()
+    await this.app.container.use('CuC/AdonisGoose').disconnect()
   }
 }
