@@ -1,6 +1,6 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
 import mongoose from 'mongoose'
-import { getMongodbModelAuthProvider } from '../src/Auth/AdonisgooseModelAuthProvider'
+import { getAdonisGooseAuthProvider } from '../src/Auth/AdonisgooseModelAuthProvider'
 
 /*
 |--------------------------------------------------------------------------
@@ -46,11 +46,11 @@ export default class MongoProvider {
   public boot(): void {
     if (this.app.container.hasBinding('Adonis/Addons/Auth')) {
       const Auth = this.app.container.resolveBinding('Adonis/Addons/Auth')
-      Auth.extend('provider', 'adonisgoose', getMongodbModelAuthProvider)
+      Auth.extend('provider', 'adonisgoose', getAdonisGooseAuthProvider)
     }
   }
 
   public async shutdown() {
-    await this.app.container.use('CuC/AdonisGoose').manager.closeAll()
+    await this.app.container.use('CuC/AdonisGoose').disconnect()
   }
 }

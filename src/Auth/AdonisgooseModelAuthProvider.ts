@@ -8,8 +8,9 @@ import { HashDriverContract } from '@ioc:Adonis/Core/Hash'
 import { ObjectId } from 'mongodb'
 
 import type { Document, Model } from 'mongoose'
+import { AdonisgooseAuthProviderConfig } from '@ioc:CuC/AdonisGoose'
 
-class MongodbModelAuthProviderUser implements ProviderUserContract<Document<unknown>> {
+class AdonisGooseModelAuthProviderUser implements ProviderUserContract<Document<unknown>> {
   constructor(
     // `this.user` can be any Model, so we use `any` to avoid indexing issues later.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -47,13 +48,16 @@ class MongodbModelAuthProviderUser implements ProviderUserContract<Document<unkn
   }
 }
 
-class MongodbModelAuthUserProvider implements UserProviderContract<Document<unknown>> {
+class AdonisGooseModelAuthUserProvider implements UserProviderContract<Document<unknown>> {
   private uids = ['email']
   private identifierKey = '_id'
   private identifierKeyType: 'objectid' | 'string' | 'number' = 'objectid'
   private hash: HashDriverContract
 
-  constructor(private auth: AuthManagerContract, private config: any) {
+  constructor(
+    private auth: AuthManagerContract,
+    private config: AdonisgooseAuthProviderConfig<Model<unknown>>
+  ) {
     if (config.uids) {
       if (config.uids.length === 0) {
         throw new Error('config.uids must have at least one element')
@@ -81,8 +85,8 @@ class MongodbModelAuthUserProvider implements UserProviderContract<Document<unkn
     }
   }
 
-  public async getUserFor(user: Document<unknown>): Promise<MongodbModelAuthProviderUser> {
-    return new MongodbModelAuthProviderUser(
+  public async getUserFor(user: Document<unknown>): Promise<AdonisGooseModelAuthProviderUser> {
+    return new AdonisGooseModelAuthProviderUser(
       user,
       this.identifierKey,
       this.identifierKeyType,
@@ -90,12 +94,12 @@ class MongodbModelAuthUserProvider implements UserProviderContract<Document<unkn
     )
   }
 
-  public async findById(id: string | number): Promise<MongodbModelAuthProviderUser> {
+  public async findById(id: string | number): Promise<AdonisGooseModelAuthProviderUser> {
     const Model = await this.getModel()
     const user = await Model.findOne({
       [this.identifierKey]: this.identifierKeyType === 'objectid' ? new ObjectId(id) : id,
     })
-    return new MongodbModelAuthProviderUser(
+    return new AdonisGooseModelAuthProviderUser(
       user,
       this.identifierKey,
       this.identifierKeyType,
@@ -103,11 +107,11 @@ class MongodbModelAuthUserProvider implements UserProviderContract<Document<unkn
     )
   }
 
-  public async findByUid(uid: string | number): Promise<MongodbModelAuthProviderUser> {
+  public async findByUid(uid: string | number): Promise<AdonisGooseModelAuthProviderUser> {
     const Model = await this.getModel()
     const $or = this.uids.map((uidKey) => ({ [uidKey]: uid }))
     const user = await Model.findOne({ $or })
-    return new MongodbModelAuthProviderUser(
+    return new AdonisGooseModelAuthProviderUser(
       user,
       this.identifierKey,
       this.identifierKeyType,
@@ -115,20 +119,20 @@ class MongodbModelAuthUserProvider implements UserProviderContract<Document<unkn
     )
   }
 
-  public async findByRememberMeToken(/* userId: string | number, token: string */): Promise<MongodbModelAuthProviderUser> {
+  public async findByRememberMeToken(/* userId: string | number, token: string */): Promise<AdonisGooseModelAuthProviderUser> {
     throw new Error('unimplemented findByRememberMeToken')
-    // return new MongodbModelAuthProviderUser(null);
+    // return new AdonisGooseModelAuthProviderUser(null);
   }
 
-  public updateRememberMeToken(/* authenticatable: MongodbModelAuthProviderUser */): Promise<void> {
+  public updateRememberMeToken(/* authenticatable: AdonisGooseModelAuthProviderUser */): Promise<void> {
     throw new Error('unimplemented updateRememberMeToken')
   }
 }
 
-export function getMongodbModelAuthProvider(
+export function getAdonisGooseAuthProvider(
   auth: AuthManagerContract,
   _mapping: string,
-  config: any
+  config: AdonisgooseAuthProviderConfig<Model<unknown>>
 ) {
-  return new MongodbModelAuthUserProvider(auth, config)
+  return new AdonisGooseModelAuthUserProvider(auth, config)
 }
